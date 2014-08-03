@@ -256,18 +256,126 @@ function! s:init()
   let s:CN = 16
   let s:CD = 17
 
-  let s:map = [
-        \   [ s:MR, s:KR, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_  ],
-        \   [ s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_  ],
-        \   [ s:E_, s:B_, s:B_, s:B_, s:B_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_  ],
-        \   [ s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:F_, s:E_, s:B_, s:E_, s:B_, s:E_, s:E_  ],
-        \   [ s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:KR, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:F_, s:F_, s:E_, s:E_, s:E_, s:B_, s:E_, s:E_  ],
-        \   [ s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:B_, s:B_, s:B_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:F_, s:F_, s:F_, s:E_, s:E_, s:E_, s:B_, s:E_, s:E_  ],
-        \   [ s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:PT, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:PT, s:E_, s:E_, s:F_, s:F_, s:F_, s:F_, s:E_, s:E_, s:E_, s:E_, s:E_, s:F_  ],
-        \   [ s:E_, s:E_, s:E_, s:KR, s:E_, s:E_, s:E_, s:PS, s:E_, s:KL, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:E_, s:PS, s:E_, s:F_, s:F_, s:F_, s:F_, s:F_, s:KL, s:E_, s:KR, s:E_, s:F_, s:F_  ],
-        \   [ s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_, s:F_  ],
+  let xs = [
+        \    [
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:B_, s:B_, s:B_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:KR, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_ ],
+        \    ],
+        \    [
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_  ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_  ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_  ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_  ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_  ],
+        \       [ s:E_, s:E_, s:PT, s:E_, s:E_  ],
+        \       [ s:E_, s:E_, s:PS, s:E_, s:E_  ],
+        \       [ s:E_, s:E_, s:PS, s:E_, s:E_  ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_  ],
+        \    ],
+        \    [
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:KL ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:F_ ],
+        \       [ s:E_, s:E_, s:E_, s:F_, s:F_ ],
+        \       [ s:E_, s:E_, s:F_, s:F_, s:F_ ],
+        \       [ s:E_, s:F_, s:F_, s:F_, s:F_ ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_ ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_ ],
+        \    ],
+        \    [
+        \       [ s:E_, s:E_, s:F_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:F_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:F_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:F_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:F_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:F_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:KL, s:E_, s:E_ ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_ ],
+        \    ],
+        \    [
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:KL, s:E_, s:E_ ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_ ],
+        \    ],
+        \    [
+        \       [ s:E_, s:E_, s:E_, s:E_, s:B_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:B_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:B_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:B_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:F_, s:KL, s:E_, s:E_, s:F_ ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_ ],
+        \    ],
+        \    [
+        \       [ s:E_, s:B_, s:KL, s:B_, s:E_ ],
+        \       [ s:E_, s:B_, s:E_, s:B_, s:E_ ],
+        \       [ s:E_, s:B_, s:E_, s:B_, s:E_ ],
+        \       [ s:E_, s:B_, s:E_, s:B_, s:E_ ],
+        \       [ s:E_, s:B_, s:E_, s:B_, s:E_ ],
+        \       [ s:E_, s:B_, s:E_, s:B_, s:E_ ],
+        \       [ s:E_, s:B_, s:E_, s:B_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_ ],
+        \    ],
+        \    [
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:E_, s:E_, s:E_, s:E_, s:E_ ],
+        \       [ s:F_, s:F_, s:F_, s:F_, s:F_ ],
+        \    ],
         \ ]
+
+  let s:map = [
+        \   [ s:MR ],
+        \   [ s:E_ ],
+        \   [ s:E_ ],
+        \   [ s:E_ ],
+        \   [ s:E_ ],
+        \   [ s:E_ ],
+        \   [ s:E_ ],
+        \   [ s:E_ ],
+        \   [ s:F_ ],
+        \ ]
+
+  let prev_r = -1
+  let n = 0
+  while n < 10
+    let r = abs(b:session._.Random.rand()) % len(xs)
+    if prev_r is r
+      continue
+    else
+      let n += 1
+    endif
+    let prev_r = r
+    let x = xs[r]
+    for lnum in range(0, len(s:map) - 1)
+      let s:map[lnum] += x[lnum]
+    endfor
+  endwhile
 endfunction
+
 function! s:map2data(id)
   if a:id is s:E_
     return s:empty
@@ -537,8 +645,8 @@ function! s:key_events(key)
   endif
 endfunction
 function! mario#gamestart()
-  call s:init()
   call game_engine#start_game('mario.vim', '[mario]', function('s:auto'))
+  call s:init()
   let &l:list = 0
   let &l:updatetime = 100
   let &l:hlsearch = 0
@@ -547,5 +655,6 @@ function! mario#gamestart()
   nnoremap <silent><buffer><nowait> h       :call <sid>key_events('l')<cr>
   nnoremap <silent><buffer><nowait> <space> :call <sid>key_events(' ')<cr>
   call b:session.redraw(s:map2lines())
+  redraw!
 endfunction
 
