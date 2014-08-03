@@ -16,5 +16,5 @@
 * qで終了(ゲームオーバー時も同様)  
 
 
-※ これは[Vim Advent Calendar 2012](http://atnd.org/events/33746) の進捗になります。
+※ これは[momonga.vim #6 in ドワンゴ（あきらかに）](http://connpass.com/event/7360/) の進捗になります。
 
