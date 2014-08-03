@@ -2,7 +2,7 @@
 # Vimでマリオ -- mario.vim --
 
 ![](https://raw.github.com/rbtnn/mario.vim/master/mario.png)
-![](https://raw.github.com/rbtnn/mario2.vim/master/mario2.png)
+![](https://raw.github.com/rbtnn/mario.vim/master/mario2.png)
 
 ## 始め方
 
