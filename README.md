@@ -4,6 +4,10 @@
 ![](https://raw.github.com/rbtnn/mario.vim/master/mario.png)
 ![](https://raw.github.com/rbtnn/mario.vim/master/mario2.png)
 
+## 依存しているプラグイン
+
+* [rbtnn/game\_engine.vim](https://github.com/rbtnn/game_engine.vim)
+
 ## 始め方
 
         " ゲームを始める

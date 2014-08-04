@@ -644,8 +644,8 @@ function! s:key_events(key)
     call s:jump()
   endif
 endfunction
-function! mario#gamestart()
-  call game_engine#start_game('mario.vim', '[mario]', function('s:auto'))
+function! mario#start_game()
+  call game_engine#start_game('[mario]', function('s:auto'))
   call s:init()
   let &l:list = 0
   let &l:updatetime = 100
