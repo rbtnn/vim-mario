@@ -3,238 +3,238 @@ scriptencoding utf-8
 
 function! s:init()
   let s:mario_r = [
-        \ "     @R@R@R@R@R         ",
-        \ "    @R@R@R@R@R@R@R@R@R  ",
-        \ "    @B@B@B@B@w@B@w      ",
-        \ "    @w@w@w@B@w@w@w@w    ",
-        \ "    @w@w@w@w@w@B@B      ",
-        \ "     @w@w@w@w@w@w       ",
-        \ "    @R@R@B@B@R@B@B      ",
-        \ "   @R@R@R@B@B@B@B@B     ",
-        \ "    @B@w@R@B @B@B@B     ",
-        \ "     @B@B@B@B@B@B       ",
-        \ "    @R@R@R@R@R@R        ",
+        \ ["     @R@R@R@R@R         "],
+        \ ["    @R@R@R@R@R@R@R@R@R  "],
+        \ ["    @B@B@B@B@w@B@w      "],
+        \ ["    @w@w@w@B@w@w@w@w    "],
+        \ ["    @w@w@w@w@w@B@B      "],
+        \ ["     @w@w@w@w@w@w       "],
+        \ ["    @R@R@B@B@R@B@B      "],
+        \ ["   @R@R@R@B@B@B@B@B     "],
+        \ ["    @B@w@R@B @B@B@B     "],
+        \ ["     @B@B@B@B@B@B       "],
+        \ ["    @R@R@R@R@R@R        "],
         \ ]
   let s:mario_l = [
-        \ "        @R@R@R@R@R      ",
-        \ " @R@R@R@R@R@R@R@R@R     ",
-        \ "     @w@B@w@B@B@B@B     ",
-        \ "   @w@w@w@w@B@w@w@w     ",
-        \ "     @B@B@w@w@w@w@w     ",
-        \ "      @w@w@w@w@w@w      ",
-        \ "     @B@B@R@B@B@R@R     ",
-        \ "    @B@B@B@B@B@R@R@R    ",
-        \ "    @B@B@B @B@R@w@B     ",
-        \ "      @B@B@B@B@B@B      ",
-        \ "       @R@R@R@R@R@R     ",
+        \ ["        @R@R@R@R@R      "],
+        \ [" @R@R@R@R@R@R@R@R@R     "],
+        \ ["     @w@B@w@B@B@B@B     "],
+        \ ["   @w@w@w@w@B@w@w@w     "],
+        \ ["     @B@B@w@w@w@w@w     "],
+        \ ["      @w@w@w@w@w@w      "],
+        \ ["     @B@B@R@B@B@R@R     "],
+        \ ["    @B@B@B@B@B@R@R@R    "],
+        \ ["    @B@B@B @B@R@w@B     "],
+        \ ["      @B@B@B@B@B@B      "],
+        \ ["       @R@R@R@R@R@R     "],
         \ ]
   let s:kuribo_l = [
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "      @R@R@R@R@R        ",
-        \ "    @B@B@R@R@R@B@B      ",
-        \ "    @R@w@B@R@B@w@R      ",
-        \ "    @R@w@w@R@w@w@R@R    ",
-        \ "@R@R@R@R@R@R@R@R@R@R@R@R",
-        \ "    @w@w@w@w@w@w@w      ",
-        \ "  @B@B @w@w@w @B@B@B    ",
-        \ "   @B@B@B   @B@B@B      ",
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["      @R@R@R@R@R        "],
+        \ ["    @B@B@R@R@R@B@B      "],
+        \ ["    @R@w@B@R@B@w@R      "],
+        \ ["    @R@w@w@R@w@w@R@R    "],
+        \ ["@R@R@R@R@R@R@R@R@R@R@R@R"],
+        \ ["    @w@w@w@w@w@w@w      "],
+        \ ["  @B@B @w@w@w @B@B@B    "],
+        \ ["   @B@B@B   @B@B@B      "],
         \ ]
   let s:kuribo_r = [
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "        @R@R@R@R@R      ",
-        \ "      @B@B@R@R@R@B@B    ",
-        \ "      @R@w@B@R@B@w@R    ",
-        \ "    @R@R@w@w@R@w@w@R    ",
-        \ "@R@R@R@R@R@R@R@R@R@R@R@R",
-        \ "      @w@w@w@w@w@w@w    ",
-        \ "    @B@B@B @w@w@w @B@B  ",
-        \ "     @B@B@B   @B@B@B    ",
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["        @R@R@R@R@R      "],
+        \ ["      @B@B@R@R@R@B@B    "],
+        \ ["      @R@w@B@R@B@w@R    "],
+        \ ["    @R@R@w@w@R@w@w@R    "],
+        \ ["@R@R@R@R@R@R@R@R@R@R@R@R"],
+        \ ["      @w@w@w@w@w@w@w    "],
+        \ ["    @B@B@B @w@w@w @B@B  "],
+        \ ["     @B@B@B   @B@B@B    "],
         \ ]
   let s:empty = [
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
-        \ "                        ",
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
+        \ ["                        "],
         \ ]
   let s:field = [
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
-        \ "@F@F@F@F@F@F@F@F@F@F@F@F",
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
         \ ]
   let s:pipe_top = [
-        \ "@G@G@G@G@G@G@G@G@G@G@G@G",
-        \ "@G@G@G@G@G@G@G@G@G@G@G@G",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
+        \ ["@G@G@G@G@G@G@G@G@G@G@G@G"],
+        \ ["@G@G@G@G@G@G@G@G@G@G@G@G"],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
         \ ]
   let s:pipe_sub = [
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
-        \ "  @G@G@G@G@G@G@G@G@w@G  ",
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
+        \ ["  @G@G@G@G@G@G@G@G@w@G  "],
         \ ]
   let s:block = [
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
-        \ "@b@b@b@b@b@b@b@b@b@b@b@b",
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
+        \ ["@b@b@b@b@b@b@b@b@b@b@b@b"],
         \ ]
   let s:char_G = [
-        \ "      @w@w@w@w@w@w      ",
-        \ "    @w@w@w@w@w@w@w@w    ",
-        \ "  @w@w@w        @w@w@w  ",
-        \ "  @w@w            @w@w  ",
-        \ "  @w@w                  ",
-        \ "  @w@w                  ",
-        \ "  @w@w          @w@w@w@w",
-        \ "  @w@w@w        @w@w@w@w",
-        \ "  @w@w@w          @w@w  ",
-        \ "    @w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w@w@w@w@w@w@w    ",
+        \ ["      @w@w@w@w@w@w      "],
+        \ ["    @w@w@w@w@w@w@w@w    "],
+        \ ["  @w@w@w        @w@w@w  "],
+        \ ["  @w@w            @w@w  "],
+        \ ["  @w@w                  "],
+        \ ["  @w@w                  "],
+        \ ["  @w@w          @w@w@w@w"],
+        \ ["  @w@w@w        @w@w@w@w"],
+        \ ["  @w@w@w          @w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w    "],
         \ ]
   let s:char_A = [
-        \ "        @w@w@w@w        ",
-        \ "      @w@w@w@w@w@w      ",
-        \ "    @w@w@w@w@w@w@w@w    ",
-        \ "    @w@w@w    @w@w@w    ",
-        \ "    @w@w        @w@w    ",
-        \ "  @w@w@w        @w@w@w  ",
-        \ "  @w@w@w@w@w@w@w@w@w@w  ",
-        \ "  @w@w@w@w@w@w@w@w@w@w  ",
-        \ "  @w@w@w        @w@w@w  ",
-        \ "@w@w@w@w        @w@w@w@w",
-        \ "@w@w@w            @w@w@w",
+        \ ["        @w@w@w@w        "],
+        \ ["      @w@w@w@w@w@w      "],
+        \ ["    @w@w@w@w@w@w@w@w    "],
+        \ ["    @w@w@w    @w@w@w    "],
+        \ ["    @w@w        @w@w    "],
+        \ ["  @w@w@w        @w@w@w  "],
+        \ ["  @w@w@w@w@w@w@w@w@w@w  "],
+        \ ["  @w@w@w@w@w@w@w@w@w@w  "],
+        \ ["  @w@w@w        @w@w@w  "],
+        \ ["@w@w@w@w        @w@w@w@w"],
+        \ ["@w@w@w            @w@w@w"],
         \ ]
   let s:char_M = [
-        \ "@w@w@w            @w@w@w",
-        \ "@w@w@w@w        @w@w@w@w",
-        \ "@w@w@w@w        @w@w@w@w",
-        \ "@w@w@w@w@w@w@w@w@w@w@w@w",
-        \ "@w@w@w@w@w@w@w@w@w@w@w@w",
-        \ "@w@w  @w@w@w@w@w@w  @w@w",
-        \ "@w@w    @w@w@w@w    @w@w",
-        \ "@w@w    @w@w@w@w    @w@w",
-        \ "@w@w    @w@w@w@w    @w@w",
-        \ "@w@w                @w@w",
-        \ "@w@w                @w@w",
+        \ ["@w@w@w            @w@w@w"],
+        \ ["@w@w@w@w        @w@w@w@w"],
+        \ ["@w@w@w@w        @w@w@w@w"],
+        \ ["@w@w@w@w@w@w@w@w@w@w@w@w"],
+        \ ["@w@w@w@w@w@w@w@w@w@w@w@w"],
+        \ ["@w@w  @w@w@w@w@w@w  @w@w"],
+        \ ["@w@w    @w@w@w@w    @w@w"],
+        \ ["@w@w    @w@w@w@w    @w@w"],
+        \ ["@w@w    @w@w@w@w    @w@w"],
+        \ ["@w@w                @w@w"],
+        \ ["@w@w                @w@w"],
         \ ]
   let s:char_E = [
-        \ "    @w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w                ",
-        \ "    @w@w                ",
-        \ "    @w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w                ",
-        \ "    @w@w                ",
-        \ "    @w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w@w@w@w@w@w@w@w  ",
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w                "],
+        \ ["    @w@w                "],
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w                "],
+        \ ["    @w@w                "],
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
         \ ]
   let s:char_O = [
-        \ "    @w@w@w@w@w@w@w@w    ",
-        \ "  @w@w@w@w@w@w@w@w@w@w  ",
-        \ "  @w@w@w@w    @w@w@w@w  ",
-        \ "@w@w@w@w@w    @w@w@w@w@w",
-        \ "@w@w@w@w        @w@w@w@w",
-        \ "@w@w@w@w        @w@w@w@w",
-        \ "@w@w@w@w        @w@w@w@w",
-        \ "@w@w@w@w@w    @w@w@w@w@w",
-        \ "  @w@w@w@w    @w@w@w@w  ",
-        \ "  @w@w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w@w@w@w@w@w@w    ",
+        \ ["    @w@w@w@w@w@w@w@w    "],
+        \ ["  @w@w@w@w@w@w@w@w@w@w  "],
+        \ ["  @w@w@w@w    @w@w@w@w  "],
+        \ ["@w@w@w@w@w    @w@w@w@w@w"],
+        \ ["@w@w@w@w        @w@w@w@w"],
+        \ ["@w@w@w@w        @w@w@w@w"],
+        \ ["@w@w@w@w        @w@w@w@w"],
+        \ ["@w@w@w@w@w    @w@w@w@w@w"],
+        \ ["  @w@w@w@w    @w@w@w@w  "],
+        \ ["  @w@w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w    "],
         \ ]
   let s:char_V = [
-        \ "@w@w@w@w        @w@w@w@w",
-        \ "@w@w@w@w        @w@w@w@w",
-        \ "@w@w@w@w@w    @w@w@w@w@w",
-        \ "@w@w@w@w@w    @w@w@w@w@w",
-        \ "@w@w@w@w@w    @w@w@w@w@w",
-        \ "  @w@w@w@w    @w@w@w@w  ",
-        \ "  @w@w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w@w@w@w@w@w@w    ",
-        \ "    @w@w@w@w@w@w@w@w    ",
-        \ "    @w@w@w@w@w@w@w@w    ",
-        \ "        @w@w@w@w        ",
+        \ ["@w@w@w@w        @w@w@w@w"],
+        \ ["@w@w@w@w        @w@w@w@w"],
+        \ ["@w@w@w@w@w    @w@w@w@w@w"],
+        \ ["@w@w@w@w@w    @w@w@w@w@w"],
+        \ ["@w@w@w@w@w    @w@w@w@w@w"],
+        \ ["  @w@w@w@w    @w@w@w@w  "],
+        \ ["  @w@w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w    "],
+        \ ["    @w@w@w@w@w@w@w@w    "],
+        \ ["    @w@w@w@w@w@w@w@w    "],
+        \ ["        @w@w@w@w        "],
         \ ]
   let s:char_R = [
-        \ "    @w@w@w@w@w@w@w      ",
-        \ "    @w@w@w@w@w@w@w@w@w  ",
-        \ "    @w@w        @w@w@w  ",
-        \ "    @w@w        @w@w@w  ",
-        \ "    @w@w    @w@w@w@w@w  ",
-        \ "    @w@w@w@w@w@w@w@w    ",
-        \ "    @w@w@w@w@w@w        ",
-        \ "    @w@w@w@w@w@w@w      ",
-        \ "    @w@w  @w@w@w@w@w    ",
-        \ "    @w@w      @w@w@w@w  ",
-        \ "    @w@w        @w@w@w  ",
+        \ ["    @w@w@w@w@w@w@w      "],
+        \ ["    @w@w@w@w@w@w@w@w@w  "],
+        \ ["    @w@w        @w@w@w  "],
+        \ ["    @w@w        @w@w@w  "],
+        \ ["    @w@w    @w@w@w@w@w  "],
+        \ ["    @w@w@w@w@w@w@w@w    "],
+        \ ["    @w@w@w@w@w@w        "],
+        \ ["    @w@w@w@w@w@w@w      "],
+        \ ["    @w@w  @w@w@w@w@w    "],
+        \ ["    @w@w      @w@w@w@w  "],
+        \ ["    @w@w        @w@w@w  "],
         \ ]
   let s:char_N = [
-        \ "  @w@w@w@w        @w@w  ",
-        \ "  @w@w@w@w        @w@w  ",
-        \ "  @w@w@w@w@w      @w@w  ",
-        \ "  @w@w@w@w@w      @w@w  ",
-        \ "  @w@w@w@w@w@w@w  @w@w  ",
-        \ "  @w@w@w@w@w@w@w@w@w@w  ",
-        \ "  @w@w  @w@w@w@w@w@w@w  ",
-        \ "  @w@w      @w@w@w@w@w  ",
-        \ "  @w@w      @w@w@w@w@w  ",
-        \ "  @w@w        @w@w@w@w  ",
-        \ "  @w@w        @w@w@w@w  ",
+        \ ["  @w@w@w@w        @w@w  "],
+        \ ["  @w@w@w@w        @w@w  "],
+        \ ["  @w@w@w@w@w      @w@w  "],
+        \ ["  @w@w@w@w@w      @w@w  "],
+        \ ["  @w@w@w@w@w@w@w  @w@w  "],
+        \ ["  @w@w@w@w@w@w@w@w@w@w  "],
+        \ ["  @w@w  @w@w@w@w@w@w@w  "],
+        \ ["  @w@w      @w@w@w@w@w  "],
+        \ ["  @w@w      @w@w@w@w@w  "],
+        \ ["  @w@w        @w@w@w@w  "],
+        \ ["  @w@w        @w@w@w@w  "],
         \ ]
   let s:char_D = [
-        \ "  @w@w@w@w@w@w@w@w      ",
-        \ "  @w@w@w@w@w@w@w@w@w    ",
-        \ "  @w@w      @w@w@w@w@w  ",
-        \ "  @w@w        @w@w@w@w  ",
-        \ "  @w@w          @w@w@w  ",
-        \ "  @w@w          @w@w@w  ",
-        \ "  @w@w          @w@w@w  ",
-        \ "  @w@w        @w@w@w@w  ",
-        \ "  @w@w      @w@w@w@w@w  ",
-        \ "  @w@w@w@w@w@w@w@w@w    ",
-        \ "  @w@w@w@w@w@w@w@w      ",
+        \ ["  @w@w@w@w@w@w@w@w      "],
+        \ ["  @w@w@w@w@w@w@w@w@w    "],
+        \ ["  @w@w      @w@w@w@w@w  "],
+        \ ["  @w@w        @w@w@w@w  "],
+        \ ["  @w@w          @w@w@w  "],
+        \ ["  @w@w          @w@w@w  "],
+        \ ["  @w@w          @w@w@w  "],
+        \ ["  @w@w        @w@w@w@w  "],
+        \ ["  @w@w      @w@w@w@w@w  "],
+        \ ["  @w@w@w@w@w@w@w@w@w    "],
+        \ ["  @w@w@w@w@w@w@w@w      "],
         \ ]
 
   let s:MR = 0
@@ -362,7 +362,7 @@ function! s:init()
   let prev_r = -1
   let n = 0
   while n < 10
-    let r = abs(b:session._.Random.rand()) % len(xs)
+    let r = game_engine#rand(len(xs))
     if prev_r is r
       continue
     else
@@ -375,60 +375,38 @@ function! s:init()
     endfor
   endwhile
 endfunction
-
-function! s:map2data(id)
-  if a:id is s:E_
-    return s:empty
-  elseif a:id is s:KL
-    return s:kuribo_l
-  elseif a:id is s:KR
-    return s:kuribo_r
-  elseif a:id is s:MR
-    return s:mario_r
-  elseif a:id is s:ML
-    return s:mario_l
-  elseif a:id is s:F_
-    return s:field
-  elseif a:id is s:PT
-    return s:pipe_top
-  elseif a:id is s:PS
-    return s:pipe_sub
-  elseif a:id is s:B_
-    return s:block
-  elseif a:id is s:CG
-    return s:char_G
-  elseif a:id is s:CA
-    return s:char_A
-  elseif a:id is s:CM
-    return s:char_M
-  elseif a:id is s:CE
-    return s:char_E
-  elseif a:id is s:CO
-    return s:char_O
-  elseif a:id is s:CV
-    return s:char_V
-  elseif a:id is s:CR
-    return s:char_R
-  elseif a:id is s:CN
-    return s:char_N
-  elseif a:id is s:CD
-    return s:char_D
-  endif
+function! s:get_offset()
+  return get(b:session, 'offset', 0)
+endfunction
+function! s:swap(a_row, a_col, b_row, b_col)
+  let temp = s:map[(a:a_row)][(a:a_col)]
+  let s:map[(a:a_row)][(a:a_col)] = s:map[(a:b_row)][(a:b_col)]
+  let s:map[(a:b_row)][(a:b_col)] = temp
 endfunction
 function! s:map2lines()
-  let b:session.offset = get(b:session, 'offset', 0)
-  let lines = []
-  for xs in map(deepcopy(s:map), 'v:val[(b:session.offset):(b:session.offset+10)]')
-    let aa = map(deepcopy(xs), 'b:session._.List.zip(s:map2data(v:val))')
-    for lnum in range(0, len(aa[0]) - 1)
-      let line = []
-      for e_idx in range(0, len(aa) - 1)
-        let line += aa[e_idx][lnum]
-      endfor
-      let lines += [join(line, '')]
-    endfor
-  endfor
-  return lines
+  let b:session.offset = s:get_offset()
+  let data = map(deepcopy(s:map), 'v:val[(b:session.offset):(b:session.offset+10)]')
+  let scale_dict = {
+        \    s:E_ : s:empty,
+        \    s:KL : s:kuribo_l,
+        \    s:KR : s:kuribo_r,
+        \    s:MR : s:mario_r,
+        \    s:ML : s:mario_l,
+        \    s:F_ : s:field,
+        \    s:PT : s:pipe_top,
+        \    s:PS : s:pipe_sub,
+        \    s:B_ : s:block,
+        \    s:CG : s:char_G,
+        \    s:CA : s:char_A,
+        \    s:CM : s:char_M,
+        \    s:CE : s:char_E,
+        \    s:CO : s:char_O,
+        \    s:CV : s:char_V,
+        \    s:CR : s:char_R,
+        \    s:CN : s:char_N,
+        \    s:CD : s:char_D,
+        \ }
+  return map(game_engine#scale2d(data, scale_dict, s:empty), 'join(v:val,"")')
 endfunction
 function! s:move_kuribo()
   let moved_kuribo_positions = {}
@@ -438,9 +416,7 @@ function! s:move_kuribo()
       let key = printf('%d-%d', lnum, c)
       if s:map[lnum][c] is s:KL && !has_key(moved_kuribo_positions, key)
         if s:map[lnum][c - 1] is s:E_
-          let temp = s:map[lnum][c - 1]
-          let s:map[lnum][c - 1] = s:map[lnum][c]
-          let s:map[lnum][c] = temp
+          call s:swap(lnum, c - 1, lnum, c)
           let moved_kuribo_positions[key] = 1
         elseif s:map[lnum][c - 1] is s:ML || s:map[lnum][c - 1] is s:MR
           call s:gameover()
@@ -457,9 +433,7 @@ function! s:move_kuribo()
       let key = printf('%d-%d', lnum, c)
       if s:map[lnum][c] is s:KR && !has_key(moved_kuribo_positions, key)
         if s:map[lnum][c + 1] is s:E_
-          let temp = s:map[lnum][c + 1]
-          let s:map[lnum][c + 1] = s:map[lnum][c]
-          let s:map[lnum][c] = temp
+          call s:swap(lnum, c + 1, lnum, c)
           let moved_kuribo_positions[key] = 1
         elseif s:map[lnum][c + 1] is s:ML || s:map[lnum][c + 1] is s:MR
           call s:gameover()
@@ -483,10 +457,10 @@ function! s:is_jumping()
   return 0
 endfunction
 function! s:scroll()
-  for c in range(get(b:session, 'offset', 0) + 5, len(s:map[0]) - 1)
+  for c in range(s:get_offset() + 5, len(s:map[0]) - 1)
     for lnum in range(0, len(s:map) - 1)
       if (s:map[lnum][c] is s:MR || s:map[lnum][c] is s:ML)
-        let b:session.offset = get(b:session, 'offset', 0) + 1
+        let b:session.offset = s:get_offset() + 1
         return 1
       endif
     endfor
@@ -499,9 +473,7 @@ function! s:down()
     for c in range(0, len(s:map[0]) - 1)
       if (s:map[lnum - 1][c] is s:MR || s:map[lnum - 1][c] is s:ML)
         if s:map[lnum][c] is s:E_
-          let temp = s:map[lnum - 1][c]
-          let s:map[lnum - 1][c] = s:map[lnum][c]
-          let s:map[lnum][c] = temp
+          call s:swap(lnum - 1, c, lnum, c)
           break
         elseif (s:map[lnum][c] is s:KR || s:map[lnum][c] is s:KL)
           let s:map[lnum][c] = s:E_
@@ -509,9 +481,7 @@ function! s:down()
         endif
       elseif (s:map[lnum - 1][c] is s:KR || s:map[lnum - 1][c] is s:KL)
         if s:map[lnum][c] is s:E_
-          let temp = s:map[lnum - 1][c]
-          let s:map[lnum - 1][c] = s:map[lnum][c]
-          let s:map[lnum][c] = temp
+          call s:swap(lnum - 1, c, lnum, c)
           break
         endif
       endif
@@ -525,9 +495,7 @@ function! s:jump()
         for lnum in range(0, len(s:map) - 1 - 1)
           if (s:map[lnum + 1][c] is s:MR || s:map[lnum + 1][c] is s:ML)
             if s:map[lnum][c] is s:E_
-              let temp = s:map[lnum + 1][c]
-              let s:map[lnum + 1][c] = s:map[lnum][c]
-              let s:map[lnum][c] = temp
+              call s:swap(lnum + 1, c, lnum, c)
               break
             elseif s:map[lnum][c] is s:B_
               let s:map[lnum][c] = s:E_
@@ -544,13 +512,11 @@ endfunction
 function! s:right()
   let moved = 0
   for lnum in range(0, len(s:map) - 1)
-    for c in range(get(b:session, 'offset', 0) + 0, len(s:map[0]) - 1 - 1)
+    for c in range(s:get_offset() + 0, len(s:map[0]) - 1 - 1)
       if (s:map[lnum][c] is s:MR || s:map[lnum][c] is s:ML)
         if s:map[lnum][c + 1] is s:E_
           let s:map[lnum][c] = s:MR
-          let temp = s:map[lnum][c + 1]
-          let s:map[lnum][c + 1] = s:map[lnum][c]
-          let s:map[lnum][c] = temp
+          call s:swap(lnum, c + 1, lnum, c)
           let moved = 1
           if c + 1 is len(s:map[0]) - 1
             call s:gameend()
@@ -575,13 +541,11 @@ endfunction
 function! s:left()
   let moved = 0
   for lnum in range(0, len(s:map) - 1)
-    for c in range(get(b:session, 'offset', 0) + 1, len(s:map[0]) - 1)
+    for c in range(s:get_offset() + 1, len(s:map[0]) - 1)
       if (s:map[lnum][c] is s:MR || s:map[lnum][c] is s:ML)
         if s:map[lnum][c - 1] is s:E_
           let s:map[lnum][c] = s:ML
-          let temp = s:map[lnum][c - 1]
-          let s:map[lnum][c - 1] = s:map[lnum][c]
-          let s:map[lnum][c] = temp
+          call s:swap(lnum, c - 1, lnum, c)
           let moved = 1
           break
         elseif s:map[lnum][c - 1] is s:KR || s:map[lnum][c - 1] is s:KL
@@ -599,14 +563,14 @@ function! s:left()
   endif
 endfunction
 function! s:gameover()
-  let s:map[1][(get(b:session, 'offset', 0) + 0)] = s:CG
-  let s:map[1][(get(b:session, 'offset', 0) + 1)] = s:CA
-  let s:map[1][(get(b:session, 'offset', 0) + 2)] = s:CM
-  let s:map[1][(get(b:session, 'offset', 0) + 3)] = s:CE
-  let s:map[2][(get(b:session, 'offset', 0) + 1)] = s:CO
-  let s:map[2][(get(b:session, 'offset', 0) + 2)] = s:CV
-  let s:map[2][(get(b:session, 'offset', 0) + 3)] = s:CE
-  let s:map[2][(get(b:session, 'offset', 0) + 4)] = s:CR
+  let s:map[1][(s:get_offset() + 0)] = s:CG
+  let s:map[1][(s:get_offset() + 1)] = s:CA
+  let s:map[1][(s:get_offset() + 2)] = s:CM
+  let s:map[1][(s:get_offset() + 3)] = s:CE
+  let s:map[2][(s:get_offset() + 1)] = s:CO
+  let s:map[2][(s:get_offset() + 2)] = s:CV
+  let s:map[2][(s:get_offset() + 3)] = s:CE
+  let s:map[2][(s:get_offset() + 4)] = s:CR
   call b:session.redraw(s:map2lines())
   redraw!
   while getchar() isnot char2nr('q')
@@ -614,9 +578,9 @@ function! s:gameover()
   call game_engine#exit_game()
 endfunction
 function! s:gameend()
-  let s:map[1][(get(b:session, 'offset', 0) + 0)] = s:CE
-  let s:map[1][(get(b:session, 'offset', 0) + 1)] = s:CN
-  let s:map[1][(get(b:session, 'offset', 0) + 2)] = s:CD
+  let s:map[1][(s:get_offset() + 0)] = s:CE
+  let s:map[1][(s:get_offset() + 1)] = s:CN
+  let s:map[1][(s:get_offset() + 2)] = s:CD
   call b:session.redraw(s:map2lines())
   redraw!
   while getchar() isnot char2nr('q')
@@ -647,9 +611,7 @@ endfunction
 function! mario#start_game()
   call game_engine#start_game('[mario]', function('s:auto'))
   call s:init()
-  let &l:list = 0
   let &l:updatetime = 100
-  let &l:hlsearch = 0
   nnoremap <silent><buffer><nowait> q       :call game_engine#exit_game()<cr>
   nnoremap <silent><buffer><nowait> l       :call <sid>key_events('h')<cr>
   nnoremap <silent><buffer><nowait> h       :call <sid>key_events('l')<cr>
