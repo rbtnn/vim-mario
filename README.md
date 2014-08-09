@@ -1,24 +1,25 @@
 
-# Vimでマリオ -- mario.vim --
+# Mario on Vim
 
-![](https://raw.github.com/rbtnn/mario.vim/master/mario.png)
-![](https://raw.github.com/rbtnn/mario.vim/master/mario2.png)
+![](https://raw.github.com/rbtnn/mario.vim/master/mario.gif)
 
-## 依存しているプラグイン
+
+## How to use
+
+        " Start mario.
+        :Mario
+
+
+## Operation Method
+
+* <Space> : Jump mario.
+* h : Move mario to the left.
+* l : Move mario to the right.
+* q : exit mario.vim(same as GameOver).
+
+
+## Dependency plugin
 
 * [rbtnn/game\_engine.vim](https://github.com/rbtnn/game_engine.vim)
 
-## 始め方
-
-        " ゲームを始める
-        :Mario
-
-## 操作方法
-
-* h,lで移動  
-* スペースでジャンプ  
-* qで終了(ゲームオーバー時も同様)  
-
-
-※ これは[momonga.vim #6 in ドワンゴ（あきらかに）](http://connpass.com/event/7360/) の進捗になります。
 
