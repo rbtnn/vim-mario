@@ -4,18 +4,18 @@
 ![](https://raw.github.com/rbtnn/mario.vim/master/mario.gif)
 
 
-## How to use
+## USAGE
 
-        " Start mario.
+        " Play mario.vim
         :Mario
 
 
 ## Operation Method
 
-* <Space> : Jump mario.
-* h : Move mario to the left.
-* l : Move mario to the right.
-* q : exit mario.vim(same as GameOver).
+* Space key : Jump mario.
+* h key : Move mario to the left.
+* l key : Move mario to the right.
+* q key : exit mario.vim(same as GameOver).
 
 
 ## Dependency plugin
