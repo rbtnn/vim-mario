@@ -10,7 +10,7 @@
         :Mario
 
 
-## Operation Method
+## How-to
 
 * Space key : Jump mario.
 * h key : Move mario to the left.
