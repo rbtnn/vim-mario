@@ -68,17 +68,17 @@ function! s:init()
         \ ["                        "],
         \ ]
   let s:field = [
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
-        \ ["@F@F@F@F@F@F@F@F@F@F@F@F"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
+        \ ["@g@g@g@g@g@g@g@g@g@g@g@g"],
         \ ]
   let s:pipe_top = [
         \ ["@G@G@G@G@G@G@G@G@G@G@G@G"],
@@ -347,7 +347,7 @@ function! s:init()
         \    ],
         \ ]
 
-  let s:map = [
+  let b:session.map = [
         \   [ s:MR ],
         \   [ s:E_ ],
         \   [ s:E_ ],
@@ -370,8 +370,8 @@ function! s:init()
     endif
     let prev_r = r
     let x = xs[r]
-    for lnum in range(0, len(s:map) - 1)
-      let s:map[lnum] += x[lnum]
+    for lnum in range(0, len(b:session.map) - 1)
+      let b:session.map[lnum] += x[lnum]
     endfor
   endwhile
 endfunction
@@ -379,13 +379,13 @@ function! s:get_offset()
   return get(b:session, 'offset', 0)
 endfunction
 function! s:swap(a_row, a_col, b_row, b_col)
-  let temp = s:map[(a:a_row)][(a:a_col)]
-  let s:map[(a:a_row)][(a:a_col)] = s:map[(a:b_row)][(a:b_col)]
-  let s:map[(a:b_row)][(a:b_col)] = temp
+  let temp = b:session.map[(a:a_row)][(a:a_col)]
+  let b:session.map[(a:a_row)][(a:a_col)] = b:session.map[(a:b_row)][(a:b_col)]
+  let b:session.map[(a:b_row)][(a:b_col)] = temp
 endfunction
 function! s:map2lines()
   let b:session.offset = s:get_offset()
-  let data = map(deepcopy(s:map), 'v:val[(b:session.offset):(b:session.offset+10)]')
+  let data = map(deepcopy(b:session.map), 'v:val[(b:session.offset):(b:session.offset+10)]')
   let scale_dict = {
         \    s:E_ : s:empty,
         \    s:KL : s:kuribo_l,
@@ -411,35 +411,35 @@ endfunction
 function! s:move_kuribo()
   let moved_kuribo_positions = {}
 
-  for lnum in range(0, len(s:map) - 1)
-    for c in range(1, len(s:map[0]) - 1)
+  for lnum in range(0, len(b:session.map) - 1)
+    for c in range(1, len(b:session.map[0]) - 1)
       let key = printf('%d-%d', lnum, c)
-      if s:map[lnum][c] is s:KL && !has_key(moved_kuribo_positions, key)
-        if s:map[lnum][c - 1] is s:E_
+      if b:session.map[lnum][c] is s:KL && !has_key(moved_kuribo_positions, key)
+        if b:session.map[lnum][c - 1] is s:E_
           call s:swap(lnum, c - 1, lnum, c)
           let moved_kuribo_positions[key] = 1
-        elseif s:map[lnum][c - 1] is s:ML || s:map[lnum][c - 1] is s:MR
+        elseif b:session.map[lnum][c - 1] is s:ML || b:session.map[lnum][c - 1] is s:MR
           call s:gameover()
           return 0
         else
-          let s:map[lnum][c] = s:KR
+          let b:session.map[lnum][c] = s:KR
         endif
       endif
     endfor
   endfor
 
-  for lnum in range(0, len(s:map) - 1)
-    for c in range(len(s:map[0]) - 1 - 1, 0, -1)
+  for lnum in range(0, len(b:session.map) - 1)
+    for c in range(len(b:session.map[0]) - 1 - 1, 0, -1)
       let key = printf('%d-%d', lnum, c)
-      if s:map[lnum][c] is s:KR && !has_key(moved_kuribo_positions, key)
-        if s:map[lnum][c + 1] is s:E_
+      if b:session.map[lnum][c] is s:KR && !has_key(moved_kuribo_positions, key)
+        if b:session.map[lnum][c + 1] is s:E_
           call s:swap(lnum, c + 1, lnum, c)
           let moved_kuribo_positions[key] = 1
-        elseif s:map[lnum][c + 1] is s:ML || s:map[lnum][c + 1] is s:MR
+        elseif b:session.map[lnum][c + 1] is s:ML || b:session.map[lnum][c + 1] is s:MR
           call s:gameover()
           return 0
         else
-          let s:map[lnum][c] = s:KL
+          let b:session.map[lnum][c] = s:KL
         endif
       endif
     endfor
@@ -447,9 +447,9 @@ function! s:move_kuribo()
 
 endfunction
 function! s:is_jumping()
-  for c in range(0, len(s:map[0]) - 1)
-    for lnum in range(1, len(s:map) - 1)
-      if (s:map[lnum - 1][c] is s:MR || s:map[lnum - 1][c] is s:ML) && s:map[lnum][c] is s:E_
+  for c in range(0, len(b:session.map[0]) - 1)
+    for lnum in range(1, len(b:session.map) - 1)
+      if (b:session.map[lnum - 1][c] is s:MR || b:session.map[lnum - 1][c] is s:ML) && b:session.map[lnum][c] is s:E_
         return 1
       endif
     endfor
@@ -457,9 +457,9 @@ function! s:is_jumping()
   return 0
 endfunction
 function! s:scroll()
-  for c in range(s:get_offset() + 5, len(s:map[0]) - 1)
-    for lnum in range(0, len(s:map) - 1)
-      if (s:map[lnum][c] is s:MR || s:map[lnum][c] is s:ML)
+  for c in range(s:get_offset() + 5, len(b:session.map[0]) - 1)
+    for lnum in range(0, len(b:session.map) - 1)
+      if (b:session.map[lnum][c] is s:MR || b:session.map[lnum][c] is s:ML)
         let b:session.offset = s:get_offset() + 1
         return 1
       endif
@@ -469,36 +469,38 @@ function! s:scroll()
 endfunction
 
 function! s:down()
-  for lnum in range(len(s:map) - 1, 1, -1)
-    for c in range(0, len(s:map[0]) - 1)
-      if (s:map[lnum - 1][c] is s:MR || s:map[lnum - 1][c] is s:ML)
-        if s:map[lnum][c] is s:E_
-          call s:swap(lnum - 1, c, lnum, c)
-          break
-        elseif (s:map[lnum][c] is s:KR || s:map[lnum][c] is s:KL)
-          let s:map[lnum][c] = s:E_
-          break
+  if exists('b:session')
+    for lnum in range(len(b:session.map) - 1, 1, -1)
+      for c in range(0, len(b:session.map[0]) - 1)
+        if (b:session.map[lnum - 1][c] is s:MR || b:session.map[lnum - 1][c] is s:ML)
+          if b:session.map[lnum][c] is s:E_
+            call s:swap(lnum - 1, c, lnum, c)
+            break
+          elseif (b:session.map[lnum][c] is s:KR || b:session.map[lnum][c] is s:KL)
+            let b:session.map[lnum][c] = s:E_
+            break
+          endif
+        elseif (b:session.map[lnum - 1][c] is s:KR || b:session.map[lnum - 1][c] is s:KL)
+          if b:session.map[lnum][c] is s:E_
+            call s:swap(lnum - 1, c, lnum, c)
+            break
+          endif
         endif
-      elseif (s:map[lnum - 1][c] is s:KR || s:map[lnum - 1][c] is s:KL)
-        if s:map[lnum][c] is s:E_
-          call s:swap(lnum - 1, c, lnum, c)
-          break
-        endif
-      endif
+      endfor
     endfor
-  endfor
+  endif
 endfunction
 function! s:jump()
   if ! s:is_jumping()
     for _ in range(0,3)
-      for c in range(0, len(s:map[0]) - 1)
-        for lnum in range(0, len(s:map) - 1 - 1)
-          if (s:map[lnum + 1][c] is s:MR || s:map[lnum + 1][c] is s:ML)
-            if s:map[lnum][c] is s:E_
+      for c in range(0, len(b:session.map[0]) - 1)
+        for lnum in range(0, len(b:session.map) - 1 - 1)
+          if (b:session.map[lnum + 1][c] is s:MR || b:session.map[lnum + 1][c] is s:ML)
+            if b:session.map[lnum][c] is s:E_
               call s:swap(lnum + 1, c, lnum, c)
               break
-            elseif s:map[lnum][c] is s:B_
-              let s:map[lnum][c] = s:E_
+            elseif b:session.map[lnum][c] is s:B_
+              let b:session.map[lnum][c] = s:E_
               call b:session.redraw(s:map2lines())
               return 0
             endif
@@ -511,19 +513,19 @@ function! s:jump()
 endfunction
 function! s:right()
   let moved = 0
-  for lnum in range(0, len(s:map) - 1)
-    for c in range(s:get_offset() + 0, len(s:map[0]) - 1 - 1)
-      if (s:map[lnum][c] is s:MR || s:map[lnum][c] is s:ML)
-        if s:map[lnum][c + 1] is s:E_
-          let s:map[lnum][c] = s:MR
+  for lnum in range(0, len(b:session.map) - 1)
+    for c in range(s:get_offset() + 0, len(b:session.map[0]) - 1 - 1)
+      if (b:session.map[lnum][c] is s:MR || b:session.map[lnum][c] is s:ML)
+        if b:session.map[lnum][c + 1] is s:E_
+          let b:session.map[lnum][c] = s:MR
           call s:swap(lnum, c + 1, lnum, c)
           let moved = 1
-          if c + 1 is len(s:map[0]) - 1
+          if c + 1 is len(b:session.map[0]) - 1
             call s:gameend()
             return 0
           endif
           break
-        elseif s:map[lnum][c + 1] is s:KR || s:map[lnum][c + 1] is s:KL
+        elseif b:session.map[lnum][c + 1] is s:KR || b:session.map[lnum][c + 1] is s:KL
           call s:gameover()
           return 0
         endif
@@ -540,15 +542,15 @@ function! s:right()
 endfunction
 function! s:left()
   let moved = 0
-  for lnum in range(0, len(s:map) - 1)
-    for c in range(s:get_offset() + 1, len(s:map[0]) - 1)
-      if (s:map[lnum][c] is s:MR || s:map[lnum][c] is s:ML)
-        if s:map[lnum][c - 1] is s:E_
-          let s:map[lnum][c] = s:ML
+  for lnum in range(0, len(b:session.map) - 1)
+    for c in range(s:get_offset() + 1, len(b:session.map[0]) - 1)
+      if (b:session.map[lnum][c] is s:MR || b:session.map[lnum][c] is s:ML)
+        if b:session.map[lnum][c - 1] is s:E_
+          let b:session.map[lnum][c] = s:ML
           call s:swap(lnum, c - 1, lnum, c)
           let moved = 1
           break
-        elseif s:map[lnum][c - 1] is s:KR || s:map[lnum][c - 1] is s:KL
+        elseif b:session.map[lnum][c - 1] is s:KR || b:session.map[lnum][c - 1] is s:KL
           call s:gameover()
           return 0
         endif
@@ -563,14 +565,14 @@ function! s:left()
   endif
 endfunction
 function! s:gameover()
-  let s:map[1][(s:get_offset() + 0)] = s:CG
-  let s:map[1][(s:get_offset() + 1)] = s:CA
-  let s:map[1][(s:get_offset() + 2)] = s:CM
-  let s:map[1][(s:get_offset() + 3)] = s:CE
-  let s:map[2][(s:get_offset() + 1)] = s:CO
-  let s:map[2][(s:get_offset() + 2)] = s:CV
-  let s:map[2][(s:get_offset() + 3)] = s:CE
-  let s:map[2][(s:get_offset() + 4)] = s:CR
+  let b:session.map[1][(s:get_offset() + 0)] = s:CG
+  let b:session.map[1][(s:get_offset() + 1)] = s:CA
+  let b:session.map[1][(s:get_offset() + 2)] = s:CM
+  let b:session.map[1][(s:get_offset() + 3)] = s:CE
+  let b:session.map[2][(s:get_offset() + 1)] = s:CO
+  let b:session.map[2][(s:get_offset() + 2)] = s:CV
+  let b:session.map[2][(s:get_offset() + 3)] = s:CE
+  let b:session.map[2][(s:get_offset() + 4)] = s:CR
   call b:session.redraw(s:map2lines())
   redraw!
   while getchar() isnot char2nr('q')
@@ -578,9 +580,9 @@ function! s:gameover()
   call game_engine#exit_game()
 endfunction
 function! s:gameend()
-  let s:map[1][(s:get_offset() + 0)] = s:CE
-  let s:map[1][(s:get_offset() + 1)] = s:CN
-  let s:map[1][(s:get_offset() + 2)] = s:CD
+  let b:session.map[1][(s:get_offset() + 0)] = s:CE
+  let b:session.map[1][(s:get_offset() + 1)] = s:CN
+  let b:session.map[1][(s:get_offset() + 2)] = s:CD
   call b:session.redraw(s:map2lines())
   redraw!
   while getchar() isnot char2nr('q')
@@ -589,12 +591,14 @@ function! s:gameend()
 endfunction
 
 function! s:auto()
-  let b:session.time = (get(b:session, 'time', 0) + &l:updatetime / 100)
-  call s:down()
-  if (b:session.time % 7) is 0
-    call s:move_kuribo()
+  if exists('b:session')
+    let b:session.time = (get(b:session, 'time', 0) + &l:updatetime / 100)
+    call s:down()
+    if (b:session.time % 7) is 0
+      call s:move_kuribo()
+    endif
+    call b:session.redraw(s:map2lines())
   endif
-  call b:session.redraw(s:map2lines())
 endfunction
 
 function! s:key_events(key)
@@ -616,6 +620,8 @@ function! mario#start_game()
   nnoremap <silent><buffer><nowait> l       :call <sid>key_events('h')<cr>
   nnoremap <silent><buffer><nowait> h       :call <sid>key_events('l')<cr>
   nnoremap <silent><buffer><nowait> <space> :call <sid>key_events(' ')<cr>
+  nnoremap <silent><buffer><nowait> S       :call game_engine#save_game('[mario]', 1)<cr>
+  nnoremap <silent><buffer><nowait> L       :call game_engine#load_game('[mario]', 1)<cr>
   call b:session.redraw(s:map2lines())
   redraw!
 endfunction
