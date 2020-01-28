@@ -20,6 +20,6 @@
 
 ## Dependency plugin
 
-* [rbtnn/game\_engine.vim](https://github.com/rbtnn/game_engine.vim)
+* [rbtnn/vim-game\_engine](https://github.com/rbtnn/vim-game_engine)
 
 
